@@ -1,13 +1,19 @@
 import * as express from "express";
 
-const app = express();
-
+const router = express();
+const router = express.Router();
 const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
+router.route("/tasks").get((req, res) => {
+  const response = { id: 1, name: "Dishes" };
+  res.json(response);
+});
+router.use("/api", router);
+
+router.get("/", (req, res) => {
   res.send("Welcome!");
 });
 
-app.listen(port, () => {
+router.listen(port, () => {
   console.log(`Running on port ${port}`);
 });
