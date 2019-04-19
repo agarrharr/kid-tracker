@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "ES2015",
+    "esModuleInterop": true,
+    "jsx": "react",
     "outDir": "./build",
     "typeRoots": ["node_modules/@types"]
   },
