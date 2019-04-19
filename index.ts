@@ -1,19 +1,14 @@
 import * as express from "express";
+import * as serverConfig from "./config/config";
+import expressConfig from "./config/express";
+// import mongooseConfig from "./config/mongoose";
 
-const router = express();
-const router = express.Router();
-const port = process.env.PORT || 3000;
+const env = (process.env.NODE_ENV = process.env.NODE_ENV || "development");
 
-router.route("/tasks").get((req, res) => {
-  const response = { id: 1, name: "Dishes" };
-  res.json(response);
-});
-router.use("/api", router);
+const app = express();
 
-router.get("/", (req, res) => {
-  res.send("Welcome!");
-});
+const config = serverConfig[env];
 
-router.listen(port, () => {
-  console.log(`Running on port ${port}`);
-});
+expressConfig(app, config);
+
+// mongooseConfig(config, env);
