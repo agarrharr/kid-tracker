@@ -1,5 +1,4 @@
 import * as bodyParser from "body-parser";
-// import cookieParser from "cookie-parser";
 import * as routes from "../routes";
 
 const expressConfig = (app: any, config: any) => {
@@ -7,7 +6,6 @@ const expressConfig = (app: any, config: any) => {
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-  // app.use(cookieParser());
   app.use("/api", routes);
 
   app.listen(app.get("port"), () => {
