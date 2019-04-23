@@ -7,7 +7,7 @@ const config = mainConfig[env];
 const router = express.Router();
 
 router.route("/tasks").get((req, res) => {
-  const response = { id: 1, name: "Dishes" };
+  const response = {};
   res.json(response);
 });
 

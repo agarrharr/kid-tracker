@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 import axios from "axios";
 import uuid from "uuid";
 
@@ -7,19 +11,21 @@ const env: string = (process.env.NODE_ENV =
   process.env.NODE_ENV || "development");
 const config: any = serverConfig[env];
 
-describe("/api", () => {
-  describe("/api/tasks", () => {
-    let taskId;
-    let response;
+describe("/api/tasks", () => {
+  let response;
+  let expectedResponse;
 
-    beforeEach(async () => {
-      const url = `http://localhost:${config.port}/api/tasks`;
-      const headers = {};
-      taskId = uuid.v4();
+  beforeEach(async () => {
+    const url = `http://localhost:${config.port}/api/tasks`;
+    const headers = {};
 
-      response = (await axios.get(url, { headers })).data;
-    });
+    response = (await axios.get(url, { headers })).data;
 
-    it("it to be false", () => expect(true).toEqual(false));
+    expectedResponse = {};
+  });
+
+  describe("when there are no tasks", () => {
+    it("returns an empty object", () =>
+      expect(response).toEqual(expectedResponse));
   });
 });

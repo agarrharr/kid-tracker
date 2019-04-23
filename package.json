@@ -10,7 +10,12 @@
     "start": "npm run build && node build/index.js",
     "start:watch": "nodemon build/index.js",
     "watch": "run-p \"build -- --watch\" start:watch",
-    "test": "jest",
+    "test": "jest */*.specs.ts",
+    "test:watch": "npm test --watch",
+    "test:integration": "jest */*.i-specs.ts",
+    "test:integration:watch": "npm run test:integration --watch",
+    "test:acceptance": "jest  */*.a-specs.ts",
+    "test:acceptance:watch": "npm run test:acceptance --watch",
     "lint": "tslint -p . -c tslint.json '**/**/*.ts'"
   },
   "husky": {
@@ -26,10 +31,10 @@
   },
   "jest": {
     "transform": {
-      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "\\.(ts|tsx)$": "ts-jest"
     },
     "testMatch": [
-      "**/*specs.ts"
+      "**/*a-specs.ts"
     ]
   },
   "dependencies": {
