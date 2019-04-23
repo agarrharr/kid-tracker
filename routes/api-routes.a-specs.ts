@@ -1,7 +1,7 @@
 import axios from "axios";
 import uuid from "uuid";
 
-import * as serverConfig from "../config/config";
+import serverConfig from "../config/config";
 
 const env: string = (process.env.NODE_ENV =
   process.env.NODE_ENV || "development");

@@ -1,5 +1,5 @@
-import * as bodyParser from "body-parser";
-import * as routes from "../routes";
+import bodyParser from "body-parser";
+import routes from "../routes";
 
 const expressConfig = (app: any, config: any) => {
   app.set("port", config.port);

@@ -1,4 +1,4 @@
-import * as express from "express";
+import express from "express";
 import apiRoutes from "./api-routes";
 
 const app = express();

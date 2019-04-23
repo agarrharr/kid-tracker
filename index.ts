@@ -1,5 +1,5 @@
-import * as express from "express";
-import * as serverConfig from "./config/config";
+import express from "express";
+import serverConfig from "./config/config";
 import expressConfig from "./config/express";
 // import mongooseConfig from "./config/mongoose";
 
