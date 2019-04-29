@@ -1,14 +1,19 @@
 import express from "express";
+import fp from "find-free-port";
+
 import serverConfig from "./config/config";
 import expressConfig from "./config/express";
 // import mongooseConfig from "./config/mongoose";
 
-const env = (process.env.NODE_ENV = process.env.NODE_ENV || "development");
+(async () => {
+  const env = (process.env.NODE_ENV = process.env.NODE_ENV || "development");
 
-const app = express();
+  const app = express();
 
-const config = serverConfig[env];
+  const config = serverConfig[env];
+  const [port] = await fp(config.port);
 
-expressConfig(app, config);
+  expressConfig(app, { ...config, port });
 
-// mongooseConfig(config, env);
+  // mongooseConfig(config, env);
+})();
