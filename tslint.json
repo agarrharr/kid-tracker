@@ -1,13 +1,9 @@
 {
-  "extends": [
-    "tslint:recommended",
-    "tslint-react"
-  ],
+  "extends": ["tslint:recommended", "tslint-react"],
   "linterOptions": {
-    "exclude": [
-      "node_modules/**"
-    ]
+    "exclude": ["node_modules/**"]
   },
   "rules": {
+    "arrow-parens": false
   }
 }

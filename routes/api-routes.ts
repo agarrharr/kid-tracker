@@ -7,8 +7,7 @@ const config = mainConfig[env];
 const router = express.Router();
 
 router.route("/tasks").get((req, res) => {
-  const response = {};
-  res.json(response);
+  res.json(null);
 });
 
 export default router;

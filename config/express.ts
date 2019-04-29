@@ -9,7 +9,7 @@ const expressConfig = (app: any, config: any) => {
   app.use("/api", routes);
 
   app.listen(app.get("port"), () => {
-    console.log("Listening on port %s...", app.get("port"));
+    console.log(`Listening on port ${app.get("port")}...`);
     if (process.send) {
       // this event is used in acceptance tests when running locally.
       process.send("service_started");
