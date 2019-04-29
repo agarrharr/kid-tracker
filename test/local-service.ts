@@ -1,12 +1,16 @@
 import childProcess from "child_process";
 
+export const PROCESS = {
+  SERVICE_STARTED: "service_started",
+};
+
 const LocalService = class {
   private static startChildProcess(serviceFilePath) {
     return new Promise((resolve, reject) => {
       const child = childProcess.fork(serviceFilePath);
 
       child.on("message", m => {
-        if (m === "service_started") {
+        if (m === PROCESS.SERVICE_STARTED) {
           resolve(child);
         }
       });

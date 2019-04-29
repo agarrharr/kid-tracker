@@ -1,5 +1,7 @@
 import bodyParser from "body-parser";
+
 import routes from "../routes";
+import { PROCESS } from "../test/local-service";
 
 const expressConfig = (app: any, config: any) => {
   app.set("port", config.port);
@@ -12,7 +14,7 @@ const expressConfig = (app: any, config: any) => {
     console.log(`Listening on port ${app.get("port")}...`);
     if (process.send) {
       // this event is used in acceptance tests when running locally.
-      process.send("service_started");
+      process.send(PROCESS.SERVICE_STARTED);
     }
   });
 };
